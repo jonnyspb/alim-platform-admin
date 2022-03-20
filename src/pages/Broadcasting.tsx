@@ -1,10 +1,7 @@
-import React, {FC} from 'react';
-import {Layout} from "antd";
-import AppRouter from "../components/AppRouter";
+import React from 'react';
 import {Content} from "antd/es/layout/layout";
-import axios from "axios";
 
-const Home: FC = () => {
+const Broadcasting = () => {
     return (
         <Content
             className="site-layout-background"
@@ -14,9 +11,9 @@ const Home: FC = () => {
                 minHeight: 880,
             }}
         >
-            <h1>Home</h1>
+            <h1>Broadcasting Page</h1>
         </Content>
     );
 };
 
-export default Home;
+export default Broadcasting;

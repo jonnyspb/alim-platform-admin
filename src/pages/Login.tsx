@@ -1,34 +1,17 @@
 import React, {useState} from 'react';
-import {useDispatch} from "react-redux";
-import {AuthActionCreators} from "../store/reducers/auth/action-creators";
+
+import {Card, Layout, Row} from "antd";
+import LoginForm from "../components/LoginForm";
 
 const Login = () => {
-    const dispatch = useDispatch();
-
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-
-    const login = (event:any) => {
-        event.preventDefault();
-        dispatch(AuthActionCreators.login(username,password))
-    }
-
     return (
-        <div>
-            <form onSubmit={login}>
-                <input
-                    type="email"
-                    value={username}
-                    onChange={ event => setUsername(event.target.value)}
-                />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={ event => setPassword(event.target.value)}
-                />
-                <button type="submit">Log In</button>
-            </form>
-        </div>
+        <Layout.Content>
+            <Row justify="center" align="middle" >
+                <Card style={{ width: 300 }}>
+                <LoginForm/>
+            </Card>
+            </Row>
+        </Layout.Content>
     );
 };
 

@@ -3,7 +3,9 @@ import AppRouter from "./components/AppRouter";
 import Home from "./pages/Home";
 import {AuthActionCreators} from "./store/reducers/auth/action-creators";
 import {useDispatch} from "react-redux";
-
+import {Layout} from "antd";
+import Navbar from "./components/Navbar";
+import './App.less';
 
 const App:FC = () => {
 
@@ -12,16 +14,16 @@ const App:FC = () => {
     useEffect( () => {
 
         if ( localStorage.getItem('auth') ){
-            dispatch(AuthActionCreators.setIsAuth(true))
-        } else {
-            dispatch(AuthActionCreators.setIsAuth(false))
+            dispatch(AuthActionCreators.checkAuth())
         }
 
     },[])
+
     return (
-        <div>
-            <AppRouter />
-        </div>
+        <Layout>
+            <Navbar/>
+            <Layout.Content/>
+        </Layout>
     );
 }
 
